@@ -1,0 +1,11 @@
+{
+  "users": [
+    {
+      "id":1,
+      "name":"Christopher Lourenço",
+      "email":"christopherkrt1@gmail.com",
+      "birth":"08-14-1996",
+      "job":"front-end"
+    }
+  ]
+}
