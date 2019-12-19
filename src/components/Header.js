@@ -13,7 +13,10 @@ const Header = () => (
 const BodyBg = createGlobalStyle`
   body{
     background-color:#F0F0F0;
+    height: 600px;
     margin:0 auto;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
   }
 `
 
