@@ -1,14 +1,15 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
-import { useAuth } from 'context/auth-context'
+import Header from 'components/Header.js'
+import List from 'components/List.js'
 
-export default () => {
-  const { logout } = useAuth()
+const App = () => {
   return (
-    <React.Fragment>
-      <button onClick={logout}>logout</button>
-      <Link to='/dashboard'>GO TO DASHBOARD</Link>
-    </React.Fragment>
+    <div>
+      <Header />
+      <List />
+    </div>
   )
 }
+
+export default App

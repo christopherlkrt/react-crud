@@ -1,13 +1,21 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 
 import imgLogo from 'assets/img/logo.png'
 
 const Header = () => (
   <Wrapper>
+    <BodyBg />
     <Logo src={imgLogo}></Logo>
   </Wrapper>
 )
+
+const BodyBg = createGlobalStyle`
+  body{
+    background-color:#F0F0F0;
+    margin:0 auto;
+  }
+`
 
 const Wrapper = styled.header`
   width: 100%;
