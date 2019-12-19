@@ -7,6 +7,13 @@ const List = () => (
       <ListTitle>Usuários</ListTitle>
       <Button>CRIAR</Button>
     </ListHead>
+    <ListBody>
+      <tr>
+        <td>ID</td>
+        <td>Nome</td>
+        <td>Vaga</td>
+      </tr>
+    </ListBody>
   </Wrapper>
 )
 
@@ -34,6 +41,11 @@ const Button = styled.button`
   line-height: 16px;
   border: unset;
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+`
+const ListBody = styled.table`
+  width: 90%;
+  background-color: #fff;
   border-radius: 4px;
 `
 

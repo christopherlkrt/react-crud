@@ -1,0 +1,12 @@
+table tr {
+  display: flex;
+  justify-content: space-between;
+}
+
+table td {
+  margin: 10px 30px;
+}
+
+table tr:first-child {
+  color: #7C7C7C;
+}

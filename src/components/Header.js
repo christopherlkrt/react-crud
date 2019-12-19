@@ -1,6 +1,7 @@
 import React from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
 
+import 'assets/css/general.css'
 import imgLogo from 'assets/img/logo.png'
 
 const Header = () => (
