@@ -9,3 +9,16 @@ table td{
 table tr:first-child {
   color: #7C7C7C;
 }
+
+a{
+  background-color: #000;
+  color: #fff;
+  padding: 10px 50px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  border: unset;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  text-decoration: none;
+}
