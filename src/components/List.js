@@ -1,21 +1,46 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 
-const List = () => (
-  <Wrapper>
-    <ListHead>
-      <ListTitle>Usuários</ListTitle>
-      <Button>CRIAR</Button>
-    </ListHead>
-    <ListBody>
-      <tr>
-        <td>ID</td>
-        <td>Nome</td>
-        <td>Vaga</td>
-      </tr>
-    </ListBody>
-  </Wrapper>
-)
+import instance from 'providers/fetchClient'
+
+const List = () => {
+  const [users, setUsers] = useState([])
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await instance.get('/users')
+
+      setUsers(response.data)
+    }
+
+    fetchData()
+  }, [])
+
+  return (
+    <Wrapper>
+      <ListHead>
+        <ListTitle>Usuários</ListTitle>
+        <Button>CRIAR</Button>
+      </ListHead>
+      <ListBody>
+        <tbody>
+          <tr>
+            <td>ID</td>
+            <td>Nome</td>
+            <td>Vaga</td>
+          </tr>
+          {users.map(user => (
+            <tr key={user.id}>
+              <td>{user.id}</td>
+              <td>{user.name}</td>
+              <td>{user.job}</td>
+            </tr>
+          ))}
+        </tbody>
+      </ListBody>
+    </Wrapper>
+  )
+}
 
 const Wrapper = styled.div`
   min-width: 320px;
@@ -44,7 +69,7 @@ const Button = styled.button`
   border-radius: 4px;
 `
 const ListBody = styled.table`
-  width: 90%;
+  width: 100%;
   background-color: #fff;
   border-radius: 4px;
 `

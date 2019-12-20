@@ -1,11 +1,25 @@
 {
   "users": [
     {
-      "id":1,
-      "name":"Christopher Lourenço",
-      "email":"christopherkrt1@gmail.com",
-      "birth":"08-14-1996",
-      "job":"front-end"
+      "id": 1,
+      "name": "Christopher Lourenço",
+      "email": "christopherkrt1@gmail.com",
+      "birth": "08-14-1996",
+      "job": "Front-end"
+    },
+    {
+      "id": 2,
+      "name": "Regis Pinheiro",
+      "email": "pinheiroregis@gmail.com",
+      "birth": "06-18-1999",
+      "job": "Quality Assurance"
+    },
+    {
+      "id": 3,
+      "name": "Rafaela Treptow",
+      "email": "rafatreptowl@gmail.com",
+      "birth": "08-01-1994",
+      "job": "UI"
     }
   ]
 }

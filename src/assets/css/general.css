@@ -1,10 +1,9 @@
 table tr {
-  display: flex;
-  justify-content: space-between;
+  text-align: center;
+  padding: 15px;
 }
-
-table td {
-  margin: 10px 30px;
+table td{
+  padding: 10px;
 }
 
 table tr:first-child {

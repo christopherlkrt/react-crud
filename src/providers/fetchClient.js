@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { getToken } from 'helpers/auth'
 
-export const __API__ = 'http://ec2-52-86-237-71.compute-1.amazonaws.com:3001/'
+export const __API__ = 'http://localhost:4000/'
 
 const defaultOptions = {
   baseURL: __API__,
