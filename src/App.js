@@ -6,12 +6,14 @@ import React, { Fragment } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 import Home from 'routes/Home'
+import Create from 'routes/Create'
 
 const App = () => {
   return (
     <Router>
       <Fragment>
-        <Route path='/' component={Home} />
+        <Route exact path='/' component={Home} />
+        <Route path='/create' component={Create} />
       </Fragment>
     </Router>
   )
