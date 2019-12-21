@@ -44,8 +44,7 @@ const List = () => {
 }
 
 const Wrapper = styled.div`
-  min-width: 320px;
-  max-width: 425px;
+  width: 320px;
   padding: 25px;
 `
 const ListTitle = styled.h3`
@@ -62,6 +61,7 @@ const ListBody = styled.table`
   width: 100%;
   background-color: #fff;
   border-radius: 4px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
 `
 
 export default List
