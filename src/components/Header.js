@@ -1,5 +1,6 @@
 import React from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
+import { Link } from 'react-router-dom'
 
 import 'assets/css/general.css'
 import imgLogo from 'assets/img/logo.png'
@@ -7,7 +8,9 @@ import imgLogo from 'assets/img/logo.png'
 const Header = () => (
   <Wrapper>
     <BodyBg />
-    <Logo src={imgLogo}></Logo>
+    <Link to={'/'}>
+      <Logo src={imgLogo}></Logo>
+    </Link>
   </Wrapper>
 )
 
