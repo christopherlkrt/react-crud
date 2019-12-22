@@ -1,35 +1,64 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
+import InputMask from 'react-input-mask'
 
 import instance from 'providers/fetchClient'
 
 const Create = () => {
+  const [user, setUser] = useState({ name: '', job: '', birth: '', birth: '', email: '' })
+
+  const submitHandler = e => {
+    e.preventDefault()
+    instance
+      .post('/users', user)
+      .then(res => {
+        console.log(res)
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  }
+
   return (
     <Wrapper>
       <CreateH2>Create Page</CreateH2>
-      <Input type='text' placeholder='Nome' />
-      <Input type='text' placeholder='Vaga' />
-      <Input type='date' placeholder='Data de Nascimento' />
-      <Input type='email' placeholder='Email' />
-      <a>ENVIAR</a>
+      <form onSubmit={submitHandler}>
+        <input
+          className='formInput'
+          type='text'
+          name='name'
+          placeholder='Nome'
+          value={user.name}
+          onChange={e => setUser({ ...user, name: e.target.value })}
+        />
+        <input
+          type='text'
+          name='job'
+          placeholder='Vaga'
+          value={user.job}
+          onChange={e => setUser({ ...user, job: e.target.value })}
+        />
+        <InputMask
+          type='text'
+          name='birth'
+          mask='99/99/9999'
+          placeholder='Data de Nascimento'
+          value={user.birth}
+          onChange={e => setUser({ ...user, birth: e.target.value })}
+        />
+        <input
+          type='email'
+          name='email'
+          placeholder='Email'
+          value={user.email}
+          onChange={e => setUser({ ...user, email: e.target.value })}
+        />
+        <button type='submit'>ENVIAR</button>
+      </form>
     </Wrapper>
   )
 }
 
-const Input = styled.input`
-  border: none;
-  border-bottom: solid 2px #868686;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 19px;
-  padding-bottom: 8px;
-  display: block;
-  height: 24px;
-  margin: 15px 0;
-  width: 100%;
-`
 const CreateH2 = styled.h2`
   margin-top: 0;
   color: #7c7c7c;

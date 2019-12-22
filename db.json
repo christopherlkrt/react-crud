@@ -4,7 +4,7 @@
       "id": 1,
       "name": "Christopher Lourenço",
       "email": "christopherkrt1@gmail.com",
-      "birth": "08-14-1996",
+      "birth": "14/08/1996",
       "job": "Front-end"
     },
     {
@@ -18,8 +18,19 @@
       "id": 3,
       "name": "Rafaela Treptow",
       "email": "rafatreptowl@gmail.com",
-      "birth": "08-01-1994",
+      "birth": "14/08/1996",
       "job": "UI"
+    },
+    {
+      "email": "christopherkrt1@gmail.com",
+      "id": 4
+    },
+    {
+      "name": "Christopher",
+      "job": "Full",
+      "birth": "14/08/1996",
+      "email": "christopherkrt1@gmail.com",
+      "id": 5
     }
   ]
 }
