@@ -9,8 +9,24 @@ table td{
 table tr:first-child {
   color: #7C7C7C;
 }
+a.action{
+  background-color: #000;
+  color: #fff;
+  padding: 10px 50px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  border: unset;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-a.create, button{
+button{
+  width:100%;
   background-color: #000;
   color: #fff;
   padding: 10px 50px;
@@ -26,7 +42,7 @@ a.create, button{
 input {
   border: none;
   border-bottom: solid 2px #868686;
-  font-family: Roboto;
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
@@ -50,4 +66,21 @@ input {
   border-radius: 4px;
   text-decoration: none;
   cursor: pointer;
+}
+
+.pageTitle{
+  margin-top: 0;
+  color: #7c7c7c;
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28px;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: 'https://fonts.googleapis.com/css?family=Roboto&display=swap'
 }

@@ -41,7 +41,7 @@ const List = () => {
     <Wrapper>
       <ListHead>
         <ListTitle>Usuários</ListTitle>
-        <Link className='create' to={'/create'}>
+        <Link className='action' to={'/create'}>
           CRIAR
         </Link>
       </ListHead>
@@ -60,7 +60,7 @@ const List = () => {
             {users.data.map(user => (
               <tr key={user.id}>
                 <td>
-                  <Link>{user.id}</Link>
+                  <Link to={`/user/${user.id}`}>{user.id}</Link>
                 </td>
                 <td>{user.name}</td>
                 <td>{user.job}</td>

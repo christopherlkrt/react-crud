@@ -22,7 +22,7 @@ const Create = () => {
 
   return (
     <Wrapper>
-      <CreateH2>Criar</CreateH2>
+      <h2 className='pageTitle'>Criar</h2>
       <form onSubmit={submitHandler}>
         <input
           type='text'
@@ -58,16 +58,6 @@ const Create = () => {
     </Wrapper>
   )
 }
-
-const CreateH2 = styled.h2`
-  margin-top: 0;
-  color: #7c7c7c;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 24px;
-  line-height: 28px;
-`
 
 const Wrapper = styled.div`
   margin: 25px;
