@@ -7,6 +7,12 @@ import instance from 'providers/fetchClient'
 const List = () => {
   const [users, setUsers] = useState([])
 
+  const deleteHandler = e => {
+    if (confirm('Realmente deseja deletar esse registro?')) {
+      instance.delete(`users/${e.target.name}`)
+    }
+  }
+
   useEffect(() => {
     const fetchData = async () => {
       const response = await instance.get('/users')
@@ -15,7 +21,7 @@ const List = () => {
     }
 
     fetchData()
-  }, [])
+  }, [deleteHandler])
 
   return (
     <Wrapper>
@@ -31,14 +37,26 @@ const List = () => {
             <td>ID</td>
             <td>Nome</td>
             <td>Vaga</td>
+            <td>Editar</td>
+            <td>Excluir</td>
           </tr>
           {users.map(user => (
             <tr key={user.id}>
               <td>
-                <Link to={`/edit/${user.id}`}>{user.id}</Link>
+                <Link>{user.id}</Link>
               </td>
               <td>{user.name}</td>
               <td>{user.job}</td>
+              <td>
+                <Link className='OpButton' to={`/edit/${user.id}`}>
+                  #
+                </Link>
+              </td>
+              <td>
+                <a name={user.id} onClick={deleteHandler} className='OpButton'>
+                  X
+                </a>
+              </td>
             </tr>
           ))}
         </tbody>
