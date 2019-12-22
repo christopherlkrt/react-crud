@@ -86,6 +86,11 @@ const List = () => {
 const Wrapper = styled.div`
   width: 425px;
   padding: 25px;
+  overflow-x: auto;
+  @media (max-width: 475px) {
+    width: 95%;
+    padding: 5px;
+  }
 `
 const ListTitle = styled.h3`
   font-weight: 500;
