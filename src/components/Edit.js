@@ -1,17 +1,28 @@
-import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import Route, { useParams, useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 import InputMask from 'react-input-mask'
-
 import instance from 'providers/fetchClient'
 
-const Create = () => {
-  const [user, setUser] = useState({ name: '', job: '', birth: '', birth: '', email: '' })
+const Edit = () => {
+  let { id } = useParams()
+  const [user, setUser] = useState({ id: `${id}`, name: '', job: '', birth: '', birth: '', email: '' })
   let history = useHistory()
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await instance.get(`/users/${id}`)
+
+      setUser(response.data)
+    }
+
+    fetchData()
+  }, [])
+
   const submitHandler = e => {
     e.preventDefault()
+    console.log(user)
     instance
-      .post('/users', user)
+      .put(`/users/${user.id}`, user)
       .then(res => {
         history.push('/')
       })
@@ -22,7 +33,7 @@ const Create = () => {
 
   return (
     <Wrapper>
-      <CreateH2>Criar</CreateH2>
+      <CreateH2>Editar</CreateH2>
       <form onSubmit={submitHandler}>
         <input
           type='text'
@@ -53,7 +64,7 @@ const Create = () => {
           value={user.email}
           onChange={e => setUser({ ...user, email: e.target.value })}
         />
-        <button type='submit'>ENVIAR</button>
+        <button type='submit'>SALVAR</button>
       </form>
     </Wrapper>
   )
@@ -78,4 +89,4 @@ const Wrapper = styled.div`
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
 `
 
-export default Create
+export default Edit

@@ -21,7 +21,9 @@ const List = () => {
     <Wrapper>
       <ListHead>
         <ListTitle>Usuários</ListTitle>
-        <Link to={'/create'}>CRIAR</Link>
+        <Link className='create' to={'/create'}>
+          CRIAR
+        </Link>
       </ListHead>
       <ListBody>
         <tbody>
@@ -32,7 +34,9 @@ const List = () => {
           </tr>
           {users.map(user => (
             <tr key={user.id}>
-              <td>{user.id}</td>
+              <td>
+                <Link to={`/edit/${user.id}`}>{user.id}</Link>
+              </td>
               <td>{user.name}</td>
               <td>{user.job}</td>
             </tr>

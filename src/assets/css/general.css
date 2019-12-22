@@ -10,7 +10,7 @@ table tr:first-child {
   color: #7C7C7C;
 }
 
-a, button{
+a.create, button{
   background-color: #000;
   color: #fff;
   padding: 10px 50px;

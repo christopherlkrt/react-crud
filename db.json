@@ -23,7 +23,10 @@
     },
     {
       "email": "christopherkrt1@gmail.com",
-      "id": 4
+      "id": 4,
+      "name": "Mengao",
+      "job": "Perdeu",
+      "birth": "08/08/1996"
     },
     {
       "name": "Christopher",
@@ -31,6 +34,27 @@
       "birth": "14/08/1996",
       "email": "christopherkrt1@gmail.com",
       "id": 5
+    },
+    {
+      "name": "Anelize",
+      "job": "Design",
+      "birth": "31/05/1999",
+      "email": "ssanelizep@hotmail.com",
+      "id": 6
+    },
+    {
+      "name": "Teste",
+      "job": "Tester",
+      "birth": "08/08/1988",
+      "email": "testerino@mail.com",
+      "id": 7
+    },
+    {
+      "name": "Bora",
+      "job": "UXxxx",
+      "birth": "30/12/1998",
+      "email": "borala@mail.com",
+      "id": 8
     }
   ]
 }

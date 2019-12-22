@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 import Home from 'routes/Home'
 import Create from 'routes/Create'
+import Edit from 'routes/Edit'
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
       <Fragment>
         <Route exact path='/' component={Home} />
         <Route path='/create' component={Create} />
+        <Route path='/edit/:id' component={Edit} />
       </Fragment>
     </Router>
   )
