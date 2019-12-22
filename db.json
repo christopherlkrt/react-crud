@@ -22,11 +22,18 @@
       "job": "UI"
     },
     {
-      "name": "Anelize",
+      "name": "Anelize Pinheiro",
       "job": "Design",
       "birth": "31/05/1999",
       "email": "ssanelizep@hotmail.com",
       "id": 6
+    },
+    {
+      "name": "Juka",
+      "job": "Product Owner",
+      "birth": "18/09/1988",
+      "email": "jukapires@mail.com",
+      "id": 7
     }
   ]
 }
