@@ -48,6 +48,11 @@ const Wrapper = styled.div`
   background-color: #fff;
   border-radius: 4px;
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+
+  @media (max-width: 425px) {
+    margin: 25px 10px;
+    width: 80%;
+  }
 `
 const ButtonWrap = styled.div`
   margin-top: 30px;
