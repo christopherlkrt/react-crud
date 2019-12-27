@@ -49,7 +49,12 @@ const List = () => {
         className: 'successAlert',
       })
     } catch (e) {
-      alert('nao foi possivel remover')
+      swal('Algo deu errado, tente novamente', {
+        buttons: false,
+        timer: 1500,
+        className: 'warnAlert',
+      })
+      console.log(e)
     }
   }
 
