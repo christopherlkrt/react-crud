@@ -92,3 +92,7 @@ input {
 .successAlert{
   background-color: rgba(63,255,106);
 }
+
+.warnAlert{
+  background-color:rgb(255, 204, 63);
+}
