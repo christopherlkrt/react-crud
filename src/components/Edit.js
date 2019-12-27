@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import Route, { useParams, useHistory } from 'react-router-dom'
-import styled from 'styled-components'
+
 import InputMask from 'react-input-mask'
+
+import styled from 'styled-components'
+
 import * as usersService from 'services/users'
 
 const Edit = () => {

@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import styled from 'styled-components'
+
 import InputMask from 'react-input-mask'
 import swal from 'sweetalert'
+
+import styled from 'styled-components'
 
 import instance from 'providers/fetchClient'
 
