@@ -2,22 +2,26 @@ import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 import InputMask from 'react-input-mask'
+import swal from 'sweetalert'
 
 import instance from 'providers/fetchClient'
 
 const Create = () => {
   const [user, setUser] = useState({ name: '', job: '', birth: '', birth: '', email: '' })
   let history = useHistory()
-  const submitHandler = e => {
+  const submitHandler = async e => {
     e.preventDefault()
-    instance
-      .post('/users', user)
-      .then(res => {
-        history.push('/')
+    try {
+      await instance.post('/users', user)
+      swal('Criado com sucesso', {
+        buttons: false,
+        timer: 1500,
+        className: 'successAlert',
       })
-      .catch(error => {
-        console.log(error)
-      })
+      history.push('/')
+    } catch (e) {
+      console.log(e)
+    }
   }
 
   return (

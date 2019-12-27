@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Route, { useParams, useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 import InputMask from 'react-input-mask'
-import instance from 'providers/fetchClient'
+import * as usersService from 'services/users'
 
 const Edit = () => {
   let { id } = useParams()
@@ -10,7 +10,7 @@ const Edit = () => {
   let history = useHistory()
   useEffect(() => {
     const fetchData = async () => {
-      const response = await instance.get(`/users/${id}`)
+      const response = await usersService.fetchUser(id)
 
       setUser(response.data)
     }
@@ -18,17 +18,20 @@ const Edit = () => {
     fetchData()
   }, [])
 
-  const submitHandler = e => {
+  const submitHandler = async e => {
     e.preventDefault()
     console.log(user)
-    instance
-      .put(`/users/${user.id}`, user)
-      .then(res => {
-        history.push('/')
+    try {
+      await usersService.edit(user.id, user)
+      swal('Editado com sucesso', {
+        buttons: false,
+        timer: 1500,
+        className: 'successAlert',
       })
-      .catch(error => {
-        console.log(error)
-      })
+      history.push('/')
+    } catch (e) {
+      console.log(e)
+    }
   }
 
   return (
