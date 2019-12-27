@@ -154,6 +154,7 @@ const Loading = styled.div`
   border: 5px solid #f0f0f0;
   border-top: 5px solid #000;
   animation: spin 2s linear infinite;
+  margin: 0 auto;
 
   @keyframes spin {
     0% {
