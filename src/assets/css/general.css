@@ -88,3 +88,7 @@ input {
   font-weight: 400;
   src: 'https://fonts.googleapis.com/css?family=Roboto&display=swap'
 }
+
+.successAlert{
+  background-color: rgba(63,255,106);
+}
