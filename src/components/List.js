@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useCallback } from 'react'
-import styled from 'styled-components'
-import { Link } from 'react-router-dom'
 import swal from '@sweetalert/with-react'
+import React, { useState, useEffect, useCallback } from 'react'
+import { Link } from 'react-router-dom'
+
+import styled from 'styled-components'
 
 import * as usersService from 'services/users'
 
@@ -124,6 +125,7 @@ const Wrapper = styled.div`
   width: 425px;
   padding: 25px;
   overflow-x: auto;
+  margin: 0 auto;
   @media (max-width: 475px) {
     width: 95%;
     padding: 5px;

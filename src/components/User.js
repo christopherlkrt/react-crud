@@ -42,7 +42,7 @@ const User = () => {
 }
 
 const Wrapper = styled.div`
-  margin: 25px;
+  margin: 25px auto;
   padding: 25px;
   width: 320px;
   background-color: #fff;
