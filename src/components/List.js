@@ -1,40 +1,60 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import swal from '@sweetalert/with-react'
 
-import instance from 'providers/fetchClient'
+import * as usersService from 'services/users'
 
 const List = () => {
-  const [users, setUsers] = useState({ isFetching: false, data: [], error: null })
+  const [users, setUsers] = useState([])
+  const [isFetching, setIsFetching] = useState(false)
+  const [error, setError] = useState({})
 
-  const fetchData = async () => {
+  const fetchUsers = async () => {
+    setIsFetching(true)
     try {
-      setUsers({ ...users, isFetching: true })
-      const response = await instance.get('/users')
-      setUsers({ isFetching: false, data: response.data, error: null })
-    } catch (error) {
-      setUsers({ ...users, isFetching: false, error })
+      const { data } = await usersService.fetchAll()
+
+      setUsers(data)
+    } catch (e) {
+      swal('Algo deu errado, atualize a página/tente novamente', {
+        buttons: false,
+        timer: 1500,
+        className: 'warnAlert',
+      })
+      console.log(e)
+    } finally {
+      setIsFetching(false)
     }
   }
 
-  const removeUser = async event => {
-    try {
-      await instance.delete(`users/${event.target.name}`)
-      alert('Usuário removido com sucesso!')
-      fetchData()
-    } catch (error) {
-      setUsers(...users, error)
-    }
-  }
+  const removeUser = async id => {
+    const shouldRemove = await swal('Você tem certeza que deseja remover?', {
+      buttons: {
+        cancel: 'Cancelar',
+        confirm: 'Confirmar',
+      },
+    })
 
-  const deleteHandler = e => {
-    if (confirm('Realmente deseja deletar esse registro?')) {
-      removeUser(e)
+    if (!shouldRemove) return
+
+    try {
+      await usersService.removeById(id)
+
+      fetchUsers()
+
+      swal('Removido com sucesso!', {
+        buttons: false,
+        timer: 1500,
+        className: 'successAlert',
+      })
+    } catch (e) {
+      alert('nao foi possivel remover')
     }
   }
 
   useEffect(() => {
-    fetchData()
+    fetchUsers()
   }, [])
 
   return (
@@ -45,7 +65,7 @@ const List = () => {
           CRIAR
         </Link>
       </ListHead>
-      {users.isFetching ? (
+      {isFetching ? (
         <Loading></Loading>
       ) : (
         <ListBody>
@@ -57,7 +77,7 @@ const List = () => {
               <td>Editar</td>
               <td>Excluir</td>
             </tr>
-            {users.data.map(user => (
+            {users.map(user => (
               <tr key={user.id}>
                 <td>
                   <Link to={`/user/${user.id}`}>{user.id}</Link>
@@ -65,14 +85,12 @@ const List = () => {
                 <td>{user.name}</td>
                 <td>{user.job}</td>
                 <td>
-                  <Link className='OpButton' to={`/edit/${user.id}`}>
+                  <OperationButton as={Link} to={`/edit/${user.id}`}>
                     #
-                  </Link>
+                  </OperationButton>
                 </td>
                 <td>
-                  <a name={user.id} onClick={deleteHandler} className='OpButton'>
-                    X
-                  </a>
+                  <OperationButton onClick={() => removeUser(user.id)}>X</OperationButton>
                 </td>
               </tr>
             ))}
@@ -82,6 +100,20 @@ const List = () => {
     </Wrapper>
   )
 }
+
+const OperationButton = styled.button`
+  background-color: #000;
+  color: #fff;
+  padding: 5px 10px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  border: unset;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
+`
 
 const Wrapper = styled.div`
   width: 425px;
